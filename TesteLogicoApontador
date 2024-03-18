@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(void) {
+    int num[5],pos;
+    int *q;
+    for(pos=0; pos <5;pos++){
+        printf("Digite o %i numero:", pos+1);
+        scanf("%i", &num[pos]);
+    }
+    q = &num;
+    for(pos=0;pos <5;pos++){
+        printf("%i", *q);
+        q++;
+    }
+    return 0;
+}
