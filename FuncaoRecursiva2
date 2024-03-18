@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int soma(int parm);
+
+int main(void) {
+    int a;
+    a = soma(5);
+    printf("%i", a);
+    return 0;
+}
+
+int soma(int parm){
+    if(parm >=15){
+        return 15;
+    }
+    return parm + soma(parm+1);
+}
