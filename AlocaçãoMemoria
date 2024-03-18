@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct reg{
+    int ra;
+    float n1, n2, med;
+};
+
+int main(void){
+    struct reg *aluno, *aluno2;
+    if(!(aluno = malloc(sizeof(struct reg)))){
+        printf("Falta memória");
+        exit(1);
+    }
+    if(!(aluno2 = malloc(sizeof(struct reg)))){
+        printf("Falta memória");
+        exit(2);
+    }
+    printf("Digite o RA do 1º aluno: "); 
+    scanf("%d", &(aluno->ra));
+    printf("Digite a 1º nota do 1º aluno: "); 
+    scanf("%f", &(aluno->n1));
+    printf("Digite a 2º nota do 1º aluno: "); 
+    scanf("%f", &(aluno->n2));
+    aluno->med = ((aluno->n1 + aluno->n2)/2.0);
+    printf("/////////////// \n");
+    printf("Digite o RA do 2º aluno: "); 
+    scanf("%d", &(aluno2->ra));
+    printf("Digite a 1º nota do 2º aluno: "); 
+    scanf("%f", &(aluno2->n1));
+    printf("Digite a 2º nota do 2º aluno: "); 
+    scanf("%f", &(aluno2->n2));
+    aluno2->med = ((aluno2->n1 + aluno2->n2)/2.0);
+    printf("/////////////// \n");
+    printf("O aluno RA: %d \n Nota 1: %.2f \n Nota 2: %.2f \n Média: %.2f \n ////////// \n", aluno->ra, aluno->n1, aluno->n2, aluno->med);
+    printf("O aluno RA: %d \n Nota 1: %.2f \n Nota 2: %.2f \n Média: %.2f \n ////////// \n", aluno2->ra, aluno2->n1, aluno2->n2, aluno2->med);
+    
+    if(aluno->med > aluno2->med){
+       printf("A maior média é %.2f do aluno %i", aluno->med, aluno->ra);
+    }else {
+        printf("A maior média é %.2f do aluno %i", aluno2->med, aluno2->ra);
+    
+    }
+    
+    free(aluno);
+    free(aluno2);
+    return 0;
+}
