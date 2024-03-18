@@ -7,7 +7,7 @@ struct reg{
 };
 
 int main(void){
-    struct reg *aluno, *aluno2;
+    struct reg *aluno, *aluno2, *i;
     if(!(aluno = malloc(sizeof(struct reg)))){
         printf("Falta memória");
         exit(1);
@@ -34,13 +34,13 @@ int main(void){
     printf("/////////////// \n");
     printf("O aluno RA: %d \n Nota 1: %.2f \n Nota 2: %.2f \n Média: %.2f \n ////////// \n", aluno->ra, aluno->n1, aluno->n2, aluno->med);
     printf("O aluno RA: %d \n Nota 1: %.2f \n Nota 2: %.2f \n Média: %.2f \n ////////// \n", aluno2->ra, aluno2->n1, aluno2->n2, aluno2->med);
-    
     if(aluno->med > aluno2->med){
-       printf("A maior média é %.2f do aluno %i", aluno->med, aluno->ra);
+        i = aluno;
     }else {
-        printf("A maior média é %.2f do aluno %i", aluno2->med, aluno2->ra);
-    
+        i = aluno2;
     }
+    printf("A maior média é %.2f do aluno %i", i->med, i->ra);
+    
     
     free(aluno);
     free(aluno2);
