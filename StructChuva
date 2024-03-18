@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 struct reg{
     int cod;
     float temp, pluv;
@@ -9,9 +10,10 @@ void salvavet(struct reg par[], int tam);
 
 
 int main(void){
-    struct reg local[3];
-    carregavet(local, 3);
-    salvavet(local, 3);
+    vetpos= 30;
+    struct reg local[vetpos];
+    carregavet(local, vetpos);
+    salvavet(local, vetpos);
     return 0;
 }
 
