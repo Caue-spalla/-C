@@ -1,0 +1,189 @@
+1|
+// Um programa que lê duas variáveis, uma fracionária e uma inteira, e fala qual é a maior
+#include <stdio.h>
+
+int main(void){
+    int a; float b;
+    printf("Digite um número inteiro: ");
+    scanf("%i", &a);
+    printf("Digite um número fracionário: ");
+    scanf("%f", &b);
+    if(a>b){
+        printf("O numero inteiro é maior do que o fracionário!");
+    } else{
+        printf("O numero fracionário é maior do que o inteiro!");
+    }
+
+    return 0;
+}
+
+2|
+// Um programa que salva pares num vetor de dez posições
+#include <stdio.h>
+
+int main(void){
+    int pos, vet[10];
+    for(pos=0;pos<10;pos++){
+       do{
+            printf("Digite um número par: ");
+            scanf("%i", &vet[pos]);
+            if(vet[pos]%2!=0){
+                printf("O numero deve ser par! \n");
+            }
+        }while(vet[pos]%2!=0); 
+    }
+    for(pos=0;pos<10;pos++){
+       printf("numero %iº: %i \n", (pos+1), vet[pos]); 
+    }
+
+    return 0;
+}
+
+
+3|
+// Soma usando memaloc e apontadores
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+    int *num1, *num2;
+    if(!(num1 = malloc(sizeof(int)))){
+        printf("Falta memória!");
+        exit(1);
+    }
+    if(!(num2 = malloc(sizeof(int)))){
+        printf("Falta memória!");
+        exit(1);
+    }
+    printf("Digite o primeiro numero: ");
+    scanf("%i", num1);
+    printf("digite o segundo numero: ");
+    scanf("%i", num2);
+    
+    printf("Soma: %i", (*num1 + *num2));
+
+    free(num1);
+    free(num2);
+    return 0;
+}
+
+
+4|
+//Desenhe um quadrado com a quantidade de linhas ditada pelo user
+#include <stdio.h>
+
+int main(void) {
+    int num, cont, pos;
+    printf("digite um número:");
+    scanf("%i", &num);
+    for(pos=0;pos<num;pos++){
+        for(cont=0;cont<num;cont++){
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+5|
+//Desenhe um triângulo retângulo com a quantidade de linhas ditadas pelo user
+#include <stdio.h>
+
+int main(void) {
+    int num, lin=0, col=0;;
+    printf("digite um número:");
+    scanf("%i", &num);
+    for(col=0;col<num;col++){
+        for(lin=0;lin<=col;lin++){
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+6|
+//Desenhe um triângulo isósceles com a quantidade de linhas ditadas pelo user
+#include <stdio.h>
+
+int main(void) {
+    int num, lin=0, col=0, esp;
+    printf("digite um número:");
+    scanf("%i", &num);
+    for(col=0;col<num;col++){
+        for(esp=0;esp<=(num-col);esp++){
+            printf(" ");
+        }
+        for(lin=0;lin<=col;lin++){
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+7|
+//Desenhe um losango com a quantidade de linhas ditadas pelo user
+#include <stdio.h>
+
+int main(void) {
+    int num, lin=0, col=0, esp;
+    printf("digite um número:");
+    scanf("%i", &num);
+    for(col=0;col<num;col++){
+        for(esp=0;esp<=(num-col);esp++){
+            printf(" ");
+        }
+        for(lin=0;lin<=col;lin++){
+            printf("* ");
+        }
+        printf("\n");
+    }
+    for(col=0;col<(num-1);col++){
+        for(esp=(num+2);esp>=(num-col);esp--){
+            printf(" ");
+        }
+        for(lin=(num-2);lin>=col;lin--){
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+8|
+//Um programa que desenha um triangulo retangulo com apenas um laço de repetição
+#include <stdio.h>
+
+int main(void) {
+    int qtd, lin=1, col;
+    //Pedimos que o usuário informe a altura/dimensão do nosso triângulo.
+    printf("Qtd: ");
+    scanf("%i", &qtd);
+    /**
+     * Usando a fórmula abaixo, qtd deixa de ser a altura do triângulo e vira a quantidade de "*" no triângulo.
+     * Sequencia numérica - PA - Soma dos termos
+     * Sn=((An)+(A1))/2*(An)
+     * Sn = Soma total
+     * An= Termo n
+     * A1= Primeiro termo
+     **/ 
+    qtd = (1+qtd)/2.0*qtd;
+    //Laço de repetição tem sua condição de parada iniciada como 1 porque não contamos o 0 em quantidade. Exemplo: tente contar até nove com os dedos usando o 0 na contagem.
+    for(col=1;col<=qtd;col++){
+        printf("* ");
+        //No teste abaixo é realizado um teste em que checamos se col tem o valor igual à somatória dos termos com base na linha que estamos. Se o valor for igual, pulamos a linha.
+        if(col == (1+lin)/2.0*lin){
+            printf(" \n");
+            lin++;
+        }
+    }
+    return 0;
+}
+
