@@ -1,0 +1,47 @@
+#include <stdio.h>
+struct reg{
+    int ra;
+    float n1, n2, med;
+};
+
+void carregavet(struct reg par[], int tam);
+void testavet(struct reg par[], int tam);
+
+
+int main(void){
+    int pos;
+    struct reg aluno[10];
+    carregavet(aluno, 10);
+    testavet(aluno, 10);
+    
+    return 0;
+}
+
+void carregavet(struct reg par[], int tam){
+    int pos;
+    for(pos=0; pos< tam; pos++){
+        printf("Digite o RA do %dº aluno: ", pos+1); 
+        scanf("%d", &par[pos].ra);
+        printf("Digite a 1º nota do %dº aluno: ", pos+1); 
+        scanf("%f", &par[pos].n1);
+        printf("Digite a 2º nota do %dº aluno: ", pos+1); 
+        scanf("%f", &par[pos].n2);
+        par[pos].med = ((par[pos].n1 + par[pos].n2)/2.0);
+        printf("/////////////// \n");
+    }
+}
+
+void testavet(struct reg par[], int tam){
+    int pos, imed = 0;
+    for(pos=0; pos<tam; pos++){
+        if(par[pos].med >= 6){
+            printf("O aluno %d passou! \n", par[pos].ra);
+        }
+    }
+    for(pos= 1; pos < tam; pos++){
+        if(par[pos].med > par[imed].med){
+                imed = pos;
+        }
+    }
+    printf("A maior média é %.2f do aluno %i", par[imed].med, par[imed].ra);
+}
