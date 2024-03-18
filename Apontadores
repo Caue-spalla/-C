@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(void) {
+    int num;
+    int *q;
+    printf("Num: ");
+    scanf("%i", &num);
+    printf("num: %i \n", num);
+    q = &num;
+    printf("q: %i", *q);
+
+    return 0;
+}
