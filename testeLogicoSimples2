@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(void){
+    float i = 3, som = 0, nsom = 0;
+    while(i < 121){
+        nsom = i / (i + 6.0);
+        som = som + nsom;
+        i++;
+    } 
+    printf("O resultado da soma é: %f \n", som);
+    return 0;
+}
