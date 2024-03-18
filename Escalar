@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+int main(void)
+{
+    int vet[3][3];
+    int a, i, j, b;
+    printf("Digite o escalar: ");
+    scanf("%i", &b);
+    for(i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("Digite um numero para a posição (%i,%i)", i, j);
+            scanf("%i", &a);
+            vet[i][j] = a;
+        }    
+    }
+    for(i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++){
+            vet[i][j] = (vet[i][j])*b;
+            printf("%3i ", vet[i][j]);
+        }
+        printf("\n");    
+    }
+    return 0;
+}
