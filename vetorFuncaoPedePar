@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int pedepar(int parA);
+
+int main(void) {
+    int vet[10], pos;
+    for(pos = 0; pos < 10; pos++){
+        vet[pos] = pedepar(pos+1);
+    }
+    for(pos = 0; pos < 10; pos++){
+        printf("vetor nº %i: %i \n", pos+1, vet[pos]);
+    }
+    return 0;
+}
+
+int pedepar(int parA){
+    int b;
+    do{
+        printf("Digite o %i° vetor: ", parA);
+        scanf("%i", &b);
+    }while((b % 2) != 0);
+    return b;
+}
